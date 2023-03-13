@@ -1,0 +1,173 @@
+/* General, Reuseable Css */
+
+ul {
+  list-style-type: none;
+}
+
+:root {
+  --main-fc: #0fe120;
+  --main-bg: #012904;
+  /* min-width: 470px; */
+}
+
+* {
+  color: #0fe120;
+  background-color: #012904;
+  margin: 5px;
+}
+
+h1 {
+  font-size: 50px;
+  padding-bottom: 8px;
+}
+
+label {
+  padding: 3px;
+}
+
+.mainContainer {
+  border: 5px dashed var(--main-fc);
+  padding: 5px;
+  text-align: center;
+  list-style-type: none;
+}
+
+.flexThis {
+  display: flex;
+  justify-content: center;
+  /* margin: auto; */
+}
+
+.subContainer {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 5px double var(--main-fc);
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 8px;
+}
+
+.LinkIconFix {
+  max-width: 50px;
+  max-height: auto;
+}
+
+.ctxt {
+  text-align: center;
+}
+
+.myCard {
+  background-color: var(--main-bg);
+  border: 3px dotted var(--main-fc);
+  padding: 8px;
+  max-width: 85%;
+  margin: auto;
+  text-align: center;
+  min-width: 375px;
+  max-width: 600px;
+}
+
+/* Navigation specific CSS */
+
+.navContainer {
+  justify-content: space-evenly;
+  list-style-type: none;
+  padding: 10px;
+}
+
+#navButton {
+  border: 4px solid var(--main-fc);
+  border-radius: 25%;
+  padding: 9px;
+  font-size: 120%;
+  text-shadow: #0fe120;
+}
+
+#navButton:hover {
+  background-color: rgb(172, 15, 15);
+}
+
+/* About me CSS */
+
+.profilePicFix {
+  border: #0fe120;
+  border-radius: 50%;
+  padding: 20px;
+}
+
+/* Projects specific CSS */
+
+.picFix2 {
+  align-items: center;
+  max-width: 350px;
+  max-height: auto;
+  border-radius: 40%;
+}
+
+.picFix2:hover {
+  filter: grayscale(1);
+}
+
+.projectIcons {
+  position: relative;
+  right: 0px;
+  bottom: 0px;
+  max-width: 50px;
+  max-height: auto;
+}
+
+.projectIcons:hover {
+  background-color: #0fe120;
+  border-radius: 51%;
+}
+
+/* Contact Me section CSS */
+
+.inputContainer {
+  border: 5px dashed var(--main-fc);
+  padding: 5px;
+  text-align: center;
+  list-style-type: none;
+  min-width: 300px;
+  margin: auto;
+  padding-bottom: 10px;
+  max-width: fit-content;
+}
+
+/* Footers Css */
+
+.footerFlex {
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+}
+
+/*ActivityList CSS specific*/
+
+.draggableActivity {
+  border: 5px solid var(--main-fc);
+  max-width: 200px;
+  padding: 20px;
+  font-size: 30px;
+  cursor: move;
+}
+
+
+/*Screen Responsive Code below*/
+
+@media screen and (max-width: 999px) {
+  .picFix2 {
+    max-width: 250px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  /* .navContainer {
+    flex: auto;
+  } */
+
+  .flexThis {
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+  }
+}

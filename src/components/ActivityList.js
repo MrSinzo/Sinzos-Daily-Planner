@@ -1,7 +1,7 @@
 import React from "react";
 import Draggable, { DraggableCore} from "react-draggable"
 
-const ActivityList = () => {
+const ActivityList = (props) => {
 
 // Make the DIV element draggable:
 // dragElement(document.getElementById("mydiv"));
@@ -48,16 +48,20 @@ const ActivityList = () => {
 //   }
 // }
 
+if(props.break === null) {
   return (
+
     <div>
-      <h3>Activities for today!</h3>
+      
       
       <div>
       <ul id="">
       <Draggable>
         <div className="draggableActivity"><li>
-      new activitiy
-      </li></div>
+      {props.activity}
+      </li>
+      {props.time}
+      </div>
       
       </Draggable>
       </ul>
@@ -66,6 +70,32 @@ const ActivityList = () => {
       </div>
     </div>
   );
+} else {
+  return (
+
+    <div>
+      
+      
+      <div>
+      <ul id="">
+      <Draggable>
+        <div className="draggableActivity" id={props.id} ><li>
+      {props.activity}
+      </li>
+      {props.time}
+      <br></br>
+      {props.break}
+      </div>
+      
+      </Draggable>
+      </ul>
+      <h3></h3>
+      <br />
+      </div>
+    </div>
+  );
+}
+  
 }
 
 export default ActivityList;

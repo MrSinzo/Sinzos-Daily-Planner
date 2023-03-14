@@ -9,8 +9,8 @@ import React from "react";
 function Header() {
   return (
     <div>
-      <h1>Teacher Katie Class</h1>
-      <h3></h3>
+      <h1>Hello Class!!!!</h1>
+      <h2>Heres our Activities for today!</h2>
       <br />
     </div>
   );

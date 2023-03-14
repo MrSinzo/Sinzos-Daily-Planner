@@ -84,10 +84,9 @@ h1 {
 
 .draggableActivity {
   position: absolute;
-
   border: 5px solid var(--main-fc);
-  max-width: 300px;
-  padding: 20px;
+  max-width: 250px;
+  padding: 5px;
   font-size: 20px;
   cursor: move;
   text-align: center;
@@ -97,44 +96,65 @@ h1 {
 .draggableActivity:hover {
   border-color: aliceblue;
 }
+
 #position1{
-  top: 30%;
-  left: 3%
+  top: 55%;
+  left: 25%
 }
 
 #position2{
-  top: 55%;
-  right: 60%
+  top: 25%;
+  left: 15%
 }
 
 #position3{
-  top: 40%;
-  right: 60%
+  top: 25%;
+  left: 22%
 }
 
 #position4{
-  top: 40%;
-  right: 60%
+  top: 35%;
+  left: 5%
 }
 
 #position5{
-  top: 40%;
-  right: 60%
+  top: 35%;
+  left: 13%
 }
 
 #position6{
-  top: 40%;
-  right: 60%
+  top: 35%;
+  left: 26%
 }
 
 #position7{
-  top: 40%;
-  right: 60%
+  top: 48%;
+  left: 4%
 }
 
 #position8{
   top: 40%;
-  right: 60%
+  left: 60%
+}
+#position9{
+  top: 40%;
+  left: 60%
+}
+#position10{
+  top: 40%;
+  left: 60%
+}
+#position11{
+  top: 40%;
+  left: 60%
+}
+#position12{
+  top: 40%;
+  left: 60%
+}
+#position13{
+  top: 40%;
+  left: 60%
 }
 
 

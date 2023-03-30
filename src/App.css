@@ -12,10 +12,13 @@ ul {
 
 * {
   color: #0fe120;
-  background-color: #012904;
   margin: 5px;
 }
 
+html
+{
+  background-color: #012904;
+}
 h1 {
   font-size: 50px;
   padding-bottom: 8px;
@@ -36,7 +39,7 @@ h1 {
 
 .borderBox{
   border: #0fe120 5px solid;
-  height: 800px;
+  height: fit-content;
   min-width: 32%
 }
 
@@ -48,9 +51,13 @@ h1 {
 
 .flexThis {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  justify-content: space-between;
-  align-items: end;
+  justify-content: space-evenly;
+  /* flex-direction: row; */
+  /* justify-items: center; */
+
+  /* align-items: end; */
   /* margin: auto; */
 }
 
@@ -58,19 +65,6 @@ h1 {
 .ctxt {
   text-align: center;
 }
-
-/* Contact Me section CSS */
-
-/* .inputContainer {
-  border: 5px dashed var(--main-fc);
-  padding: 5px;
-  text-align: center;
-  list-style-type: none;
-  min-width: 300px;
-  margin: auto;
-  padding-bottom: 10px;
-  max-width: fit-content;
-} */
 
 /* Footers Css */
 
@@ -83,21 +77,27 @@ h1 {
 /*ActivityList CSS specific*/
 
 .draggableActivity {
-  position: absolute;
-  border: 5px solid var(--main-fc);
-  max-width: 250px;
-  padding: 5px;
-  font-size: 20px;
+  border: 5px outset var(--main-fc);
+  border-radius: 50%;
+  min-width: 150px;
+  min-height: 150px;
+  padding: 9px;
+  font-size: 18px;
   cursor: move;
-  text-align: center;
-
 }
 
+.activityText {
+  padding: 20px;
+
+}
 .draggableActivity:hover {
   border-color: aliceblue;
+  border: 5px inset var(--main-fc);
+  background-color: rgb(76, 108, 59);
+ 
 }
 
-#position1{
+/* #position1{
   top: 55%;
   left: 25%
 }
@@ -155,7 +155,7 @@ h1 {
 #position13{
   top: 40%;
   left: 60%
-}
+} */
 
 
 /*Screen Responsive Code below*/
@@ -182,9 +182,8 @@ h1 {
 
 
   .draggableActivity {
-  position: static;
   margin: auto 0;
-  max-width: fit-content;
+  max-width: fill;
   }
   .flexThis {
     display: inline-block;

@@ -184,6 +184,7 @@ h1 {
   .draggableActivity {
   margin: auto 0;
   max-width: fill;
+  background-color: var(--main-bg);
   }
   .flexThis {
     display: inline-block;

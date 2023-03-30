@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/MrSinzo/Sinzos-Daily-Planner/issues"
   },
-  "homepage": "https://github.com/MrSinzo/Sinzos-Daily-Planner",
+  "homepage": "https://mrsinzo.github.io/Sinzos-Daily-Planner/",
   "dependencies": {
     "bootstrap": "^5.2.3",
     "gh-pages": "^5.0.0",

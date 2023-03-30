@@ -44,6 +44,7 @@ const activities = [
     id: 9,
     name: "Math At Tables",
     time: "12:00-12:15",
+    break: "A Break 12:30-1:15"
   },
   {
     id: 10,

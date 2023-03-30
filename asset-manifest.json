@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/MrSinzo/Sinzos-Daily-Planner/static/css/main.2c31364e.css",
+    "main.js": "/MrSinzo/Sinzos-Daily-Planner/static/js/main.c946d4cf.js",
+    "index.html": "/MrSinzo/Sinzos-Daily-Planner/index.html",
+    "main.2c31364e.css.map": "/MrSinzo/Sinzos-Daily-Planner/static/css/main.2c31364e.css.map",
+    "main.c946d4cf.js.map": "/MrSinzo/Sinzos-Daily-Planner/static/js/main.c946d4cf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2c31364e.css",
+    "static/js/main.c946d4cf.js"
+  ]
+}

@@ -1,13 +1,8 @@
 /* General, Reuseable Css */
 
-ul {
-  list-style-type: none;
-}
-
 :root {
   --main-fc: #0fe120;
   --main-bg: #012904;
-  /* min-width: 470px; */
 }
 
 * {
@@ -15,15 +10,17 @@ ul {
   margin: 5px;
 }
 
-html
-{
+ul {
+  list-style-type: none;
+}
+
+html {
   background-color: #012904;
 }
 h1 {
   font-size: 50px;
   padding-bottom: 8px;
 }
-
 
 .mainContainer {
   border: 5px dashed var(--main-fc);
@@ -34,19 +31,18 @@ h1 {
 
 .borderLeft {
   border-left: 5px solid var(--main-fc);
-  
 }
 
-.borderBox{
+.borderBox {
   border: #0fe120 5px solid;
   height: fit-content;
-  min-width: 32%
+  min-width: 32%;
 }
 
-.borderBox2{
+.borderBox2 {
   border: #0fe120 5px solid;
   height: 800px;
-  min-width: 32%
+  min-width: 32%;
 }
 
 .flexThis {
@@ -54,13 +50,7 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   justify-content: space-evenly;
-  /* flex-direction: row; */
-  /* justify-items: center; */
-
-  /* align-items: end; */
-  /* margin: auto; */
 }
-
 
 .ctxt {
   text-align: center;
@@ -78,7 +68,7 @@ h1 {
 
 .draggableActivity {
   border: 5px outset var(--main-fc);
-  border-radius: 50%;
+  border-radius: 10%;
   min-width: 150px;
   min-height: 150px;
   padding: 9px;
@@ -88,76 +78,20 @@ h1 {
 }
 
 .activityText {
-  padding: 20px;
-
+  padding: 6px;
+  
 }
 .draggableActivity:hover {
   border-color: aliceblue;
   border: 5px inset var(--main-fc);
   background-color: rgb(76, 108, 59);
- 
 }
 
-/* #position1{
-  top: 55%;
-  left: 25%
+.picFix {
+  max-width: 100px;
+  border-radius: 20px;
+  min-height: 100px;
 }
-
-#position2{
-  top: 25%;
-  left: 15%
-}
-
-#position3{
-  top: 25%;
-  left: 22%
-}
-
-#position4{
-  top: 35%;
-  left: 5%
-}
-
-#position5{
-  top: 35%;
-  left: 13%
-}
-
-#position6{
-  top: 35%;
-  left: 26%
-}
-
-#position7{
-  top: 48%;
-  left: 4%
-}
-
-#position8{
-  top: 40%;
-  left: 60%
-}
-#position9{
-  top: 40%;
-  left: 60%
-}
-#position10{
-  top: 40%;
-  left: 60%
-}
-#position11{
-  top: 40%;
-  left: 60%
-}
-#position12{
-  top: 40%;
-  left: 60%
-}
-#position13{
-  top: 40%;
-  left: 60%
-} */
-
 
 /*Screen Responsive Code below*/
 
@@ -168,27 +102,27 @@ h1 {
 }
 
 @media screen and (max-width: 800px) {
-  /* .navContainer {
-    flex: auto;
-  } */
-
-
-
   .borderBox {
     height: fit-content;
   }
   .borderBox2 {
-      display: none;
+    display: none;
   }
 
-
   .draggableActivity {
-  margin: auto 0;
-  max-width: fill;
+    margin: auto 0;
+    max-width: fill;
   }
   .flexThis {
     display: inline-block;
-    flex-direction: none;
-    /* flex-wrap: wrap; */
+    flex-direction: column;
   }
+
+  .picFix {
+    max-width: 40px;
+    border-radius: 80%;
+    min-height: 40px;
+  }
+
+
 }

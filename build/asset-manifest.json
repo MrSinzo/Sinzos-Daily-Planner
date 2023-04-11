@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Sinzos-Daily-Planner/static/css/main.43f46a58.css",
-    "main.js": "/Sinzos-Daily-Planner/static/js/main.1de404eb.js",
+    "main.css": "/Sinzos-Daily-Planner/static/css/main.edee25bf.css",
+    "main.js": "/Sinzos-Daily-Planner/static/js/main.f70dd504.js",
     "index.html": "/Sinzos-Daily-Planner/index.html",
-    "main.43f46a58.css.map": "/Sinzos-Daily-Planner/static/css/main.43f46a58.css.map",
-    "main.1de404eb.js.map": "/Sinzos-Daily-Planner/static/js/main.1de404eb.js.map"
+    "main.edee25bf.css.map": "/Sinzos-Daily-Planner/static/css/main.edee25bf.css.map",
+    "main.f70dd504.js.map": "/Sinzos-Daily-Planner/static/js/main.f70dd504.js.map"
   },
   "entrypoints": [
-    "static/css/main.43f46a58.css",
-    "static/js/main.1de404eb.js"
+    "static/css/main.edee25bf.css",
+    "static/js/main.f70dd504.js"
   ]
 }

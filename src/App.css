@@ -84,6 +84,7 @@ h1 {
   padding: 9px;
   font-size: 18px;
   cursor: move;
+  background-color: var(--main-bg);
 }
 
 .activityText {
@@ -184,7 +185,6 @@ h1 {
   .draggableActivity {
   margin: auto 0;
   max-width: fill;
-  background-color: var(--main-bg);
   }
   .flexThis {
     display: inline-block;

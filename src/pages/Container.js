@@ -10,7 +10,7 @@ function Container() {
     <div>
       <Header />
       <div className="">
-        <ActivityList activities={activities} />
+        <ActivityList/>
       </div>
       <div className="flexThis">
         <div className="borderBox2">

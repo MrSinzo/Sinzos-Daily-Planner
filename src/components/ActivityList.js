@@ -1,26 +1,25 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Draggable from "react-draggable";
 
+export default function ActivityList({ localData }) {
+  localData = JSON.parse(localStorage.getItem("Activity"));
 
-
-export default function ActivityList({ activities }) {
-  return (
-    <div className="flexThis">
-      {activities.map((activity) => (
-        <Draggable
-          key={activity.id}
-          axis="both"
-          defaultPosition={{ x: 0, y: 0 }}
-        >
-          <div className="draggableActivity">
-            {/* <img className="picFix" src={activity.pic} /> */}
-            <li className="activityText">{activity.name}</li>
-            <li>{activity.time}</li>
-            <li>{activity.break}</li>
-            <img className="picFix" src={activity.pic} />
-          </div>
-        </Draggable>
-      ))}
-    </div>
-  );
+  console.log(localData);
+    return (
+      <div className="flexthis">
+        {localData.map((singleAct) => (
+          <Draggable
+            key={singleAct.id}
+            axis="both"
+            defaultPosition={{ x: 0, y: 0 }}
+          >
+            <div>
+              <p> The draggable element</p>
+              <p>{singleAct.title}</p>
+              <p>{singleAct.time}</p>
+            </div>
+          </Draggable>
+        ))}
+      </div>
+    );
 }

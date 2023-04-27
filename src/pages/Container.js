@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ActivityList from "../components/ActivityList";
 import activities from "../Activities";
+import ImageUpload from "../components/ImageUpload";
 
 function Container() {
 
@@ -19,6 +20,9 @@ function Container() {
         <div className="borderBox2">
           <h2>All Done!</h2>
         </div>
+      </div>
+      <div>
+        <ImageUpload/>
       </div>
       <Footer />
     </div>

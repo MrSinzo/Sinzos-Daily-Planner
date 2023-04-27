@@ -72,6 +72,7 @@ h1 {
   border-radius: 10%;
   min-width: 150px;
   min-height: 150px;
+  max-width: 200px;
   padding: 9px;
   font-size: 18px;
   cursor: move;
@@ -80,6 +81,7 @@ h1 {
 
 .activityText {
   padding: 6px;
+  color: black;
 }
 
 .draggableActivity:hover {
@@ -94,6 +96,11 @@ h1 {
   min-height: 100px;
   touch-action: manipulation;
   pointer-events: none;
+}
+
+.cardHeaderFlex {
+  display: flex;
+  justify-content: space-around;
 }
 
 /*Screen Responsive Code below*/

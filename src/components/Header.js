@@ -1,14 +1,10 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import uuid from "../utils/helpers";
 
 function Header() {
   if (localStorage.getItem("Activity") == null) {
     localStorage.setItem("Activity", "[]");
   }
-
-  //   const [newActivity, setNewActivity] = useState(""
-  //  )
 
   const [title, setTitle] = useState("");
   const [time, setTime] = useState("");
@@ -17,7 +13,7 @@ function Header() {
   const [selectedImage, setSelectedImage] = useState(
     localStorage.getItem("profilePicture") ?? "/static/images/avatar/1.jpg"
   );
-  // const file = document.querySelector("input[type=file]").files[0]
+
   const handleInputChange = (e) => {
     // Getting the value and name of the input which triggered the change
     const { name, value } = e.target;
@@ -38,11 +34,9 @@ function Header() {
     }
   };
 
-  // const [file, setFile] = useState("");
-
   useEffect(() => {
     if (image) {
-      localStorage.getItem("profilePicture");
+      localStorage.getItem("SPED_IMAGE");
     }
   }, [image]);
 
@@ -55,65 +49,58 @@ function Header() {
     key: uuid(),
   };
 
-  // console.log(image);
-
+  // Function that grabs the image data and converts it for localstorage
   const handlePhoto = (e) => {
     const reader = new FileReader();
 
     reader.onload = (event) => {
       localStorage.setItem("SPED_IMAGE", event.target.result);
       setSelectedImage(event.target.result);
-      // let info = event.target.result;
-      console.log(selectedImage);
     };
+
     reader.readAsDataURL(e.target.files[0]);
-    // console.log(newImage)
-    // setImage(newImage);
   };
-  console.log(selectedImage)
-  const handleSubmit = (e) => {
-    e.preventDefault();
+
+  const handleSubmit = () => {
     const formData = new FormData();
     formData.append("photo", newActivity.image);
-
-    console.log(newActivity.image);
   };
 
   //when "Add Activity" button is clicked it will grab the old arrat of data,
   //push the new object into the array and then save it to local storage
-
   const handleClick = (e) => {
     let oldData = JSON.parse(localStorage.getItem("Activity"));
-
-    // localStorage.setItem("profilePicture", event.target.result);
-    // setSelectedImage(event.target.result);
     oldData.push(newActivity);
     localStorage.setItem("Activity", JSON.stringify(oldData));
-    // };
-    // console.log(reader);
-    // reader.readAsDataURL(e.target.files[0]);
+
+    setBreakTime("");
+    setTitle("");
+    setTime("");
+    // temporary bypass till I can get UseEffect working correctly
+    useEffect(window.location.reload());
   };
 
-  //working delte fo ALL Activities
-  // const handleDelete = useEffect(() => {
-  //   return localStorage.removeItem("Activity")
-  // })
+   // useEffect(() => {}, [title]);
 
-  const handleDelete = useEffect(() => {
 
+  //Delete function that will delete ALL Activities
+
+  const handleDelete = () => {
     localStorage.removeItem("Activity");
-    localStorage.removeItem("SPED_IMAGE")
-    
-  });
+    localStorage.removeItem("SPED_IMAGE");
+    useEffect(window.location.reload());
+  };
 
-  // useEffect(() => {
-
-  // })
 
   return (
     <div>
       <div className="flexThis">
-        <div className="">
+        <div>
+          <button className="" id="deleteAllBtn" onClick={handleDelete}>
+            Delete All Activites
+          </button>
+        </div>
+        <div className="borderBox">
           <li>
             <input
               className="activityText"
@@ -143,25 +130,25 @@ function Header() {
           </li>
           <li>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
-                  <div
-                    title="Edit picture"
-                    className=""
-                    alt="Profile Picture"
-                    src={selectedImage}
-                    sx={{
-                      width: 250,
-                      height: 250,
-                    }}
-                    onClick={() => document.getElementById("fileInput").click()}
-                  />
-                  <input
-                    title="Click to edit!"
-                    type="file"
-                    accept=".png, .jpg, .jpeg"
-                    name="photo"
-                    onChange={handlePhoto}
-                    id="fileInput"
-                  />
+              <div
+                title="Edit picture"
+                className=""
+                alt="Profile Picture"
+                src={selectedImage}
+                sx={{
+                  width: 250,
+                  height: 250,
+                }}
+                onClick={() => document.getElementById("fileInput").click()}
+              />
+              <input
+                title="Click to edit!"
+                type="file"
+                accept=".png, .jpg, .jpeg"
+                name="photo"
+                onChange={handlePhoto}
+                id="fileInput"
+              />
             </form>
           </li>
           <button onClick={handleClick}>Add Activity</button>
@@ -169,11 +156,6 @@ function Header() {
         <h1>Hello Class!!!!</h1>
         <h2>Heres our Activities for today!</h2>
         <br />
-      </div>
-      <div>
-        <button className="" id="deleteAllBtn" onClick={handleDelete}>
-          Delete All Activites
-        </button>
       </div>
     </div>
   );

@@ -5,6 +5,19 @@
   --main-bg: #012904;
 }
 
+.buttonColor {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: rgb(38, 168, 64);
+  border: #012904;
+  color: black;
+  margin: auto;
+
+}
+
+.buttonColor:hover {
+  cursor:pointer
+}
+
 * {
   color: #0fe120;
   margin: 5px;
@@ -46,6 +59,9 @@ h1 {
   min-width: 32%;
 }
 
+.hideButton {
+  
+}
 .flexThis {
   display: flex;
   flex-wrap: wrap;
@@ -53,6 +69,13 @@ h1 {
   justify-content: space-evenly;
 }
 
+.pushRight {
+  margin-left: 20px ;
+}
+
+.row {
+  flex-wrap: wrap;
+}
 .ctxt {
   text-align: center;
 }
@@ -88,6 +111,7 @@ h1 {
   border-color: aliceblue;
   border: 5px inset var(--main-fc);
   background-color: rgb(76, 108, 59);
+  cursor: pointer;
 }
 
 .picFix {

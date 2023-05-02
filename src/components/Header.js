@@ -6,6 +6,7 @@ function Header() {
     localStorage.setItem("Activity", "[]");
   }
 
+  const [hideForm, setHideForm] = useState(false);
   const [title, setTitle] = useState("");
   const [time, setTime] = useState("");
   const [breakTime, setBreakTime] = useState("");
@@ -49,6 +50,10 @@ function Header() {
     key: uuid(),
   };
 
+  const handleHide = (e) => {
+    setHideForm(true);
+  };
+
   // Function that grabs the image data and converts it for localstorage
   const handlePhoto = (e) => {
     const reader = new FileReader();
@@ -60,6 +65,10 @@ function Header() {
 
     reader.readAsDataURL(e.target.files[0]);
   };
+
+  const handleShow = (e) => {
+    setHideForm(false)
+  }
 
   const handleSubmit = () => {
     const formData = new FormData();
@@ -80,8 +89,7 @@ function Header() {
     useEffect(window.location.reload());
   };
 
-   // useEffect(() => {}, [title]);
-
+  // useEffect(() => {}, [title]);
 
   //Delete function that will delete ALL Activities
 
@@ -91,74 +99,102 @@ function Header() {
     useEffect(window.location.reload());
   };
 
-
-  return (
-    <div>
-      <div className="flexThis">
+  if (hideForm === true) {
+    return (
+      <div>
         <div>
-          <button className="" id="deleteAllBtn" onClick={handleDelete}>
-            Delete All Activites
-          </button>
+          {" "}
+          <h1>Hello Class!!!!</h1>
+          <h2>Heres our Activities for today!</h2>
         </div>
-        <div className="borderBox">
-          <li>
-            <input
-              className="activityText"
-              name="title"
-              value={title}
-              onChange={handleInputChange}
-              placeholder="Activity?"
-            />
-          </li>
-          <li>
-            <input
-              className="activityText"
-              name="time"
-              value={time}
-              onChange={handleInputChange}
-              placeholder="Time?"
-            />
-          </li>
-          <li>
-            <input
-              className="activityText"
-              name="breakTime"
-              value={breakTime}
-              onChange={handleInputChange}
-              placeholder="Someone on Break?"
-            />
-          </li>
-          <li>
-            <form onSubmit={handleSubmit} encType="multipart/form-data">
-              <div
-                title="Edit picture"
-                className=""
-                alt="Profile Picture"
-                src={selectedImage}
-                sx={{
-                  width: 250,
-                  height: 250,
-                }}
-                onClick={() => document.getElementById("fileInput").click()}
-              />
-              <input
-                title="Click to edit!"
-                type="file"
-                accept=".png, .jpg, .jpeg"
-                name="photo"
-                onChange={handlePhoto}
-                id="fileInput"
-              />
-            </form>
-          </li>
-          <button onClick={handleClick}>Add Activity</button>
+        <div>
+          <button className="hideButton buttonColor" onClick={handleShow}>Show Menu</button>
         </div>
-        <h1>Hello Class!!!!</h1>
-        <h2>Heres our Activities for today!</h2>
-        <br />
       </div>
-    </div>
-  );
+    );
+  }
+  if  (!hideForm) {
+    return (
+      <div>
+        <div>
+          {" "}
+          <h1>Hello Class!!!!</h1>
+          <h2>Heres our Activities for today!</h2>
+        </div>
+        <div className="flexThis">
+          <div className="borderBox row">
+            <button className="hideButton buttonColor" onClick={handleHide}>
+              Hide Menu
+            </button>
+            <li>
+              <input
+                className="activityText"
+                name="title"
+                value={title}
+                onChange={handleInputChange}
+                placeholder="Activity?"
+              />
+            </li>
+            <li>
+              <input
+                className="activityText"
+                name="time"
+                value={time}
+                onChange={handleInputChange}
+                placeholder="Time?"
+              />
+            </li>
+            <li>
+              <input
+                className="activityText"
+                name="breakTime"
+                value={breakTime}
+                onChange={handleInputChange}
+                placeholder="Someone on Break?"
+              />
+            </li>
+            <div className="buttonColor">
+              <form onSubmit={handleSubmit} encType="multipart/form-data">
+                <div
+                  title="Edit picture"
+                  className=""
+                  alt="Profile Picture"
+                  src={selectedImage}
+                  sx={{
+                    width: 250,
+                    height: 250,
+                  }}
+                  onClick={() => document.getElementById("fileInput").click()}
+                />
+                <input
+                  className="buttonColor"
+                  title="Click to edit!"
+                  type="file"
+                  accept=".png, .jpg, .jpeg"
+                  name="photo"
+                  onChange={handlePhoto}
+                  id="fileInput"
+                />
+              </form>
+            </div>
+            <button className="buttonColor row" onClick={handleClick}>
+              Add Activity
+            </button>
+            <div>
+              <button
+                className="buttonColor"
+                id="deleteAllBtn"
+                onClick={handleDelete}
+              >
+                Delete All Activites
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  } 
+  
 }
 
 export default Header; // our connection to the rest of the application

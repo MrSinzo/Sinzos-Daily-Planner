@@ -14,13 +14,14 @@ function Header() {
   const [selectedImage, setSelectedImage] = useState(
     localStorage.getItem("profilePicture") ?? "/static/images/avatar/1.jpg"
   );
+  const [xPos, setXPos] = useState(0);
+  const [yPos, setYPos] = useState(0);
 
   const handleInputChange = (e) => {
     // Getting the value and name of the input which triggered the change
     const { name, value } = e.target;
 
-    // Ternary statement that will call either setTitle or setTime based on what field the user is typing in
-    // we can handle the extra stuff with and expanded if statement probably
+    // If statement that will call either setTitle, setTime, etc. based on what field the user is typing in
     if (name === "title") {
       return setTitle(value);
     }
@@ -48,6 +49,8 @@ function Header() {
     breakTime: breakTime,
     image: selectedImage,
     key: uuid(),
+    x: xPos,
+    y: yPos,
   };
 
   const handleHide = (e) => {
@@ -66,9 +69,9 @@ function Header() {
     reader.readAsDataURL(e.target.files[0]);
   };
 
-  const handleShow = (e) => {
-    setHideForm(false)
-  }
+  const handleShow = () => {
+    setHideForm(false);
+  };
 
   const handleSubmit = () => {
     const formData = new FormData();
@@ -101,31 +104,36 @@ function Header() {
 
   if (hideForm === true) {
     return (
-      <div>
-        <div>
-          {" "}
+      <div className="flexThis">
+        <div className="">
           <h1>Hello Class!!!!</h1>
-          <h2>Heres our Activities for today!</h2>
         </div>
-        <div>
-          <button className="hideButton buttonColor" onClick={handleShow}>Show Menu</button>
+        <div className="">
+          <h1>Heres our Activities for today!</h1>
+        </div>
+        <div className="menu">
+          <button className="buttonColor borderBox" onClick={handleShow}>
+            Show Menu
+          </button>
         </div>
       </div>
     );
   }
-  if  (!hideForm) {
+  if (!hideForm) {
     return (
-      <div>
-        <div>
-          {" "}
+      <div className="flexThis">
+        <div className="spacer">
           <h1>Hello Class!!!!</h1>
-          <h2>Heres our Activities for today!</h2>
         </div>
-        <div className="flexThis">
-          <div className="borderBox row">
-            <button className="hideButton buttonColor" onClick={handleHide}>
-              Hide Menu
-            </button>
+        <div className="">
+          <h1>Heres our Activities for today!</h1>
+        </div>
+
+        <div className="menu">
+          <button className=" buttonColor borderBox" onClick={handleHide}>
+            Hide Menu
+          </button>
+          <div className="borderBox">
             <li>
               <input
                 className="activityText"
@@ -168,7 +176,7 @@ function Header() {
                 />
                 <input
                   className="buttonColor"
-                  title="Click to edit!"
+                  // title="Click to edit!"
                   type="file"
                   accept=".png, .jpg, .jpeg"
                   name="photo"
@@ -177,10 +185,8 @@ function Header() {
                 />
               </form>
             </div>
-            <button className="buttonColor row" onClick={handleClick}>
-              Add Activity
-            </button>
-            <div>
+
+            <div className="flexThis2">
               <button
                 className="buttonColor"
                 id="deleteAllBtn"
@@ -188,13 +194,15 @@ function Header() {
               >
                 Delete All Activites
               </button>
+              <button className="buttonColor row" onClick={handleClick}>
+                Add Activity
+              </button>
             </div>
           </div>
         </div>
       </div>
     );
-  } 
-  
+  }
 }
 
 export default Header; // our connection to the rest of the application

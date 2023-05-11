@@ -1,26 +1,13 @@
 /* General, Reuseable Css */
 
-:root {
-  --main-fc: #0fe120;
-  --main-bg: #012904;
-}
-
-.buttonColor {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: rgb(38, 168, 64);
-  border: #012904;
-  color: black;
-  margin: auto;
-
-}
-
-.buttonColor:hover {
-  cursor:pointer
-}
-
 * {
-  color: #0fe120;
+  color: var(--main-fc);
   margin: 5px;
+}
+
+:root {
+  --main-fc: #e1e10d;
+  --main-bg: black;
 }
 
 ul {
@@ -28,7 +15,7 @@ ul {
 }
 
 html {
-  background-color: #012904;
+  background-color: black;
 }
 
 h1 {
@@ -36,48 +23,83 @@ h1 {
   padding-bottom: 8px;
 }
 
-.mainContainer {
-  border: 5px dashed var(--main-fc);
-  padding: 5px;
-  text-align: center;
-  list-style-type: none;
-}
-
-.borderLeft {
-  border-left: 5px solid var(--main-fc);
+.activityBoxes {
+  border: var(--main-fc) 5px solid;
+  height: 100%;
+  min-width: 400px;
+  /* flex: 2 0 21%; */
+  /* flex-basis: 40%; */
+  /* flex-direction: row; */
 }
 
 .borderBox {
-  border: #0fe120 5px solid;
-  height: fit-content;
-  min-width: 32%;
+  border: var(--main-fc) 5px solid;
 }
 
-.borderBox2 {
-  border: #0fe120 5px solid;
-  height: 800px;
-  min-width: 32%;
+.ctxt {
+  text-align: center;
 }
 
-.hideButton {
-  
+.buttonColor {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: var(--main-fc);
+  border: #012904;
+  color: black;
+  margin: auto;
 }
+
+.buttonColor:hover {
+  cursor: pointer;
+}
+
 .flexThis {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  justify-content: space-evenly;
+justify-content: space-around;
+  flex-direction: row;
 }
 
+.flexThis2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.flexThisList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 40%;
+  justify-content: center;
+}
+
+.mainContainer {
+  border: 5px dashed var(--main-fc);
+  padding: 2px;
+  text-align: center;
+  list-style-type: none;
+  height: 100%
+}
+
+/* .menu {
+  flex-basis: 20%; 
+  min-height: 50px; 
+} */
+
 .pushRight {
-  margin-left: 20px ;
+  margin-left: 20px;
 }
 
 .row {
   flex-wrap: wrap;
 }
-.ctxt {
-  text-align: center;
+
+.spacer {
+  flex-basis: 20%;
+}
+
+.title {
+  flex-basis: 45%;
 }
 
 /* Footers Css */
@@ -90,16 +112,24 @@ h1 {
 
 /*ActivityList CSS specific*/
 
+.cardHeaderFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .draggableActivity {
   border: 5px outset var(--main-fc);
   border-radius: 10%;
   min-width: 150px;
   min-height: 150px;
   max-width: 200px;
-  padding: 9px;
+  /* padding: 9px; */
   font-size: 18px;
   cursor: move;
   background-color: var(--main-bg);
+  /* flex-direction: column; */
+  flex-wrap: wrap;
 }
 
 .activityText {
@@ -107,10 +137,14 @@ h1 {
   color: black;
 }
 
+.cardText {
+  word-wrap: normal;
+}
+
 .draggableActivity:hover {
   border-color: aliceblue;
   border: 5px inset var(--main-fc);
-  background-color: rgb(76, 108, 59);
+
   cursor: pointer;
 }
 
@@ -120,11 +154,7 @@ h1 {
   min-height: 100px;
   touch-action: manipulation;
   pointer-events: none;
-}
-
-.cardHeaderFlex {
-  display: flex;
-  justify-content: space-around;
+  margin: auto;
 }
 
 /*Screen Responsive Code below*/
@@ -139,6 +169,7 @@ h1 {
   .borderBox {
     height: fit-content;
   }
+
   .borderBox2 {
     display: none;
   }

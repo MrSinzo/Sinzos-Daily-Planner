@@ -5,19 +5,19 @@ import ActivityList from "../components/ActivityList";
 // import activities from "../Activities";
 
 function Container() {
-
   return (
     <div>
       <Header />
-      <div className="">
-        <ActivityList/>
-      </div>
-      <div className="flexThis">
-        <div className="borderBox2">
-          <h2>Current Activity:</h2>{" "}
+
+      
+      <div className="flexThis2">
+      <ActivityList />
+        <div>
+          <h2 className="activityBoxes">↓ Current Activity ↓</h2>{" "}
         </div>
-        <div className="borderBox2">
-          <h2>All Done!</h2>
+        <div>
+          {" "}
+          <h2 className="activityBoxes">All Done! </h2>
         </div>
       </div>
       <Footer />

@@ -19,7 +19,7 @@ Decided to try out more react components and create a front-end application that
 
 
 ## How did I go about building this? <a name="how"></a>
-Mainly used React and React-draggable component. I oringinally was attempting to get the buttons to be craggable via CSS but react may posing some complications on how vanilla CSS works in react. Then it was Deployed to Github pages. 
+Mainly used React and React-draggable component. I oringinally was attempting to get the Activity Cards to be craggable via CSS but react may posing some complications on how vanilla CSS works in react. Then it was Deployed to Github pages. 
 
 ## App Link! <a name="example"></a>
 
@@ -36,4 +36,4 @@ Creator- Kyle Feldman - [LinkedIn Profile Link](https://www.linkedin.com/in/kyle
 ## Future Developments <a name="develop"></a>
 - Add functionallity to write over text in moveable boxes (Done 4/27/2023), functionality to add or remove boxes ( Able to add and remove ALL cards, not individuals yet 4/27/2023), functionality to color code them
 - Small little animation when button is moved into "All Done" section of the page
-- Want to add hide button for create card component
+- Want to add hide button for create card component (Done! 5/1/2023)

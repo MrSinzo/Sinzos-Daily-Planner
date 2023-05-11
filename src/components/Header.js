@@ -81,8 +81,14 @@ function Header() {
   //when "Add Activity" button is clicked it will grab the old arrat of data,
   //push the new object into the array and then save it to local storage
   const handleClick = (e) => {
+    // let newName = uuid();
+    // // console.log(newName)
+
+    // localStorage.setItem(newName, JSON.stringify(newActivity));
+
     let oldData = JSON.parse(localStorage.getItem("Activity"));
     oldData.push(newActivity);
+    console.log(oldData)
     localStorage.setItem("Activity", JSON.stringify(oldData));
 
     setBreakTime("");

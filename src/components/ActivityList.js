@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import Draggable from "react-draggable";
 
 export default function ActivityList({ localData }) {
+  const [toggleDeleteOne, setToggleDeleteOne] = useState(false);
+
   localData = JSON.parse(localStorage.getItem("Activity"));
   const [xPos, setXPos] = useState();
   const [yPos, setYPos] = useState();
@@ -24,30 +26,36 @@ export default function ActivityList({ localData }) {
   //   }
   // }, [existingDivPositions]);
 
-  function detectCard(e) {
-    let deleteOne = e.target.getAttribute("id");
-    console.log(deleteOne);
-    // arr.map((activity) => {
-    //   console.log(activity);
-    // });
+  console.log("b4", localData);
 
-    // arr.splice(arr.indexOf(1), 1);
-    // storage.setItem("data", JSON.stringify(arr));
+
+  const detectCard  = (e) => {
+    const deleteOne = e.target.getAttribute("id");
+    // console.log(deleteOne);
+
+    // find the index number of the arrayed object
+    const pos = localData.map((e) => e.key).indexOf(deleteOne);
+    // console.log(pos);
+
+    localData.splice(pos, 1);
+
+    // console.log("after", localData)
+
+    localStorage.clear();
+
+    localStorage.setItem("Activity", JSON.stringify(localData));
+
+    useEffect(window.location.reload())
   }
+
 
   // quick placeholder for single delete function
   function deleteActivity(e) {
-    confirm("Do you want to delete this Activity?");
-    if(confirm) {
-      alert("ok")
-    } else {
-      alert ("false")
-    }
+    setToggleDeleteOne(true);
   }
 
-  const bigAndSmall = (e) => {
-   let selectedCard = e.target.getAttribute("class")
-   console.log(selectedCard)
+  function hideDelete(e) {
+    setToggleDeleteOne(false);
   }
 
   const handleStop = (e, data) => {
@@ -63,8 +71,10 @@ export default function ActivityList({ localData }) {
     setPositions(dummyPositions);
     // console.log("works")
     console.log(dummyPositions);
+
+    //using these bits below we might be able to get the id key and use it to reference the matching one in local storage?
     // let deleteOne = e.target.getAttribute('className')
-    detectCard(e);
+    // detectCard(e);
 
     // console.log(deleteOne)
   };
@@ -74,30 +84,68 @@ export default function ActivityList({ localData }) {
   //   localStorage.setItem("positions_div", JSON.stringify(positions));
   // }, [positions]);
 
-  return (
-    <div className="flexThisList">
-      {localData.map((singleAct) => (
-        <div key={singleAct.key} className="flexThis">
-          <Draggable
-            axis="both"
-            defaultPosition={{ x: Number(singleAct.x), y: Number(singleAct.y) }}
-            onStop={handleStop}
-          >
-            <div
-              id={singleAct.key}
-              key={singleAct.key}
-              className="draggableActivity cardHeaderFlex"
-              onDoubleClick={deleteActivity}
+  if (toggleDeleteOne) {
+    return (
+      <div className="flexThisList">
+        {localData.map((singleAct) => (
+          <div key={singleAct.key} className="flexThis">
+            <Draggable
+              axis="both"
+              defaultPosition={{
+                x: Number(singleAct.x),
+                y: Number(singleAct.y),
+              }}
+              onStop={handleStop}
             >
-              <li className="cardText">{singleAct.title}</li>
-              <li className="carFText">{singleAct.time}</li>
+              <div
+                id={singleAct.key}
+                key={singleAct.key}
+                className="draggableActivity cardHeaderFlex"
+                onDoubleClick={hideDelete}
+              >
+                <li className="cardText">{singleAct.title}</li>
+                <li className="carFText">{singleAct.time}</li>
 
-              <img className="picFix" src={singleAct.image} />
-              <li>{singleAct.breakTime}</li>
-            </div>
-          </Draggable>
-        </div>
-      ))}
-    </div>
-  );
+                <img className="picFix" src={singleAct.image} />
+                <li>{singleAct.breakTime}</li>
+                <button id={singleAct.key} onClick={detectCard}>
+                  DELETE
+                </button>
+              </div>
+            </Draggable>
+          </div>
+        ))}
+      </div>
+    );
+  } else {
+    return (
+      <div className="flexThisList">
+        {localData.map((singleAct) => (
+          <div key={singleAct.key} className="flexThis">
+            <Draggable
+              axis="both"
+              defaultPosition={{
+                x: Number(singleAct.x),
+                y: Number(singleAct.y),
+              }}
+              onStop={handleStop}
+            >
+              <div
+                id={singleAct.key}
+                key={singleAct.key}
+                className="draggableActivity cardHeaderFlex"
+                onDoubleClick={deleteActivity}
+              >
+                <li className="cardText">{singleAct.title}</li>
+                <li className="carFText">{singleAct.time}</li>
+
+                <img className="picFix" src={singleAct.image} />
+                <li>{singleAct.breakTime}</li>
+              </div>
+            </Draggable>
+          </div>
+        ))}
+      </div>
+    );
+  }
 }

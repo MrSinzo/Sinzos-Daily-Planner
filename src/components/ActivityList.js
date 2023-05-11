@@ -26,20 +26,18 @@ export default function ActivityList({ localData }) {
   //   }
   // }, [existingDivPositions]);
 
-  console.log("b4", localData);
+  // console.log("b4", localData);
 
 
   const detectCard  = (e) => {
     const deleteOne = e.target.getAttribute("id");
     // console.log(deleteOne);
 
-    // find the index number of the arrayed object
+    // find the index number of the arrayed object, stores the number in the variable
     const pos = localData.map((e) => e.key).indexOf(deleteOne);
-    // console.log(pos);
 
+    //puuls the item from the array
     localData.splice(pos, 1);
-
-    // console.log("after", localData)
 
     localStorage.clear();
 
@@ -60,6 +58,17 @@ export default function ActivityList({ localData }) {
 
   const handleStop = (e, data) => {
     let dummyPositions = { ...positions };
+
+    const card = e.target.getAttribute("id");
+    // returns the key value of the element
+
+    const cardPos = localData.map((e) => e.key).indexOf(card);
+    // returns a #
+    
+    console.log(cardPos)
+
+    
+
 
     // const itemId = e.target.id
     //  let tempId = ("div.draggableActivity.react-draggable-dragged.style")
@@ -104,8 +113,7 @@ export default function ActivityList({ localData }) {
                 onDoubleClick={hideDelete}
               >
                 <li className="cardText">{singleAct.title}</li>
-                <li className="carFText">{singleAct.time}</li>
-
+                <li className="cardText">{singleAct.time}</li>
                 <img className="picFix" src={singleAct.image} />
                 <li>{singleAct.breakTime}</li>
                 <button id={singleAct.key} onClick={detectCard}>

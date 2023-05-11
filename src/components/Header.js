@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import uuid from "../utils/helpers";
+import backUp from "../images/LARCHMONT-LION.png"
 
 function Header() {
   if (localStorage.getItem("Activity") == null) {
@@ -87,6 +88,10 @@ function Header() {
     // localStorage.setItem(newName, JSON.stringify(newActivity));
 
     let oldData = JSON.parse(localStorage.getItem("Activity"));
+    console.log(newActivity.image)
+    if (newActivity.image === "/static/images/avatar/1.jpg") {
+      newActivity.image = backUp
+    } 
     oldData.push(newActivity);
     console.log(oldData)
     localStorage.setItem("Activity", JSON.stringify(oldData));

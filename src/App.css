@@ -26,6 +26,7 @@ h1 {
 .activityBoxes {
   border: var(--main-fc) 5px solid;
   height: 100%;
+  min-height: 500px;
   min-width: 400px;
   /* flex: 2 0 21%; */
   /* flex-basis: 40%; */
@@ -55,7 +56,7 @@ h1 {
 .flexThis {
   display: flex;
   flex-wrap: wrap;
-justify-content: space-around;
+  justify-content: space-around;
   flex-direction: row;
 }
 
@@ -78,7 +79,7 @@ justify-content: space-around;
   padding: 2px;
   text-align: center;
   list-style-type: none;
-  height: 100%
+  height: 100%;
 }
 
 /* .menu {
@@ -115,7 +116,8 @@ justify-content: space-around;
 .cardHeaderFlex {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  max-height: 240px;
+
 }
 
 .draggableActivity {

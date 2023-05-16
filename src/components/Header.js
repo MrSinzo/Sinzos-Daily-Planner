@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import uuid from "../utils/helpers";
-import backUp from "../images/LARCHMONT-LION.png";
+import backUp from "../images/LARCHMONT-LION.png"
 
 function Header() {
   if (localStorage.getItem("Activity") == null) {
@@ -79,7 +79,7 @@ function Header() {
     formData.append("photo", newActivity.image);
   };
 
-  //when "Add Activity" button is clicked, it will grab the old array of data,
+  //when "Add Activity" button is clicked it will grab the old arrat of data,
   //push the new object into the array and then save it to local storage
   const handleClick = (e) => {
     // let newName = uuid();
@@ -88,12 +88,12 @@ function Header() {
     // localStorage.setItem(newName, JSON.stringify(newActivity));
 
     let oldData = JSON.parse(localStorage.getItem("Activity"));
-    console.log(newActivity.image);
+    console.log(newActivity.image)
     if (newActivity.image === "/static/images/avatar/1.jpg") {
-      newActivity.image = backUp;
-    }
+      newActivity.image = backUp
+    } 
     oldData.push(newActivity);
-    console.log(oldData);
+    console.log(oldData)
     localStorage.setItem("Activity", JSON.stringify(oldData));
 
     setBreakTime("");
@@ -103,33 +103,14 @@ function Header() {
     useEffect(window.location.reload());
   };
 
+  // useEffect(() => {}, [title]);
+
   //Delete function that will delete ALL Activities
+
   const handleDelete = () => {
     localStorage.removeItem("Activity");
     localStorage.removeItem("SPED_IMAGE");
     useEffect(window.location.reload());
-  };
-
-
-
-  const resetPositions = () => {
-    let initialStorageLoad = JSON.parse(localStorage.getItem("Activity"));
-
-    const keys = Object.keys(initialStorageLoad);
-    // console.log(initialStorageLoad.x)
-    keys.forEach((key) => {
-      setXPos((initialStorageLoad[key].x = 0));
-      setYPos((initialStorageLoad[key].y = 0));
-      console.log("x " + `${JSON.stringify(initialStorageLoad[key].x)}`);
-      console.log("y " + `${JSON.stringify(initialStorageLoad[key].y)}`);
-    });
-
-    console.log(initialStorageLoad);
-
-    localStorage.setItem("Activity", JSON.stringify(initialStorageLoad));
-
-    window.location.reload()
-
   };
 
   if (hideForm === true) {
@@ -144,10 +125,6 @@ function Header() {
         <div className="menu">
           <button className="buttonColor borderBox" onClick={handleShow}>
             Show Menu
-          </button>
-          <br></br>
-          <button className="buttonColor borderBox" onClick={resetPositions}>
-            Reset Positions
           </button>
         </div>
       </div>
@@ -166,10 +143,6 @@ function Header() {
         <div className="menu">
           <button className=" buttonColor borderBox" onClick={handleHide}>
             Hide Menu
-          </button>
-          <br></br>
-          <button className=" buttonColor borderBox" onClick={resetPositions}>
-            Reset Positions
           </button>
           <div className="borderBox">
             <li>

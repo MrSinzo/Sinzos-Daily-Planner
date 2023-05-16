@@ -28,6 +28,9 @@ h1 {
   height: 100%;
   min-height: 500px;
   min-width: 400px;
+  /* flex: 2 0 21%; */
+  /* flex-basis: 40%; */
+  /* flex-direction: row; */
 }
 
 .borderBox {
@@ -77,8 +80,6 @@ h1 {
   text-align: center;
   list-style-type: none;
   height: 100%;
-  max-width: 95%;
-  margin: auto
 }
 
 /* .menu {
@@ -102,7 +103,13 @@ h1 {
   flex-basis: 45%;
 }
 
+/* Footers Css */
 
+.footerFlex {
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+}
 
 /*ActivityList CSS specific*/
 
@@ -110,6 +117,7 @@ h1 {
   display: flex;
   flex-direction: column;
   max-height: 240px;
+
 }
 
 .draggableActivity {
@@ -118,21 +126,21 @@ h1 {
   min-width: 150px;
   min-height: 150px;
   max-width: 200px;
+  /* padding: 9px; */
   font-size: 18px;
   cursor: move;
   background-color: var(--main-bg);
-  /* flex-wrap: wrap; */
+  /* flex-direction: column; */
+  flex-wrap: wrap;
 }
 
 .activityText {
   padding: 6px;
   color: black;
-
 }
 
 .cardText {
   word-wrap: normal;
-  pointer-events: none;
 }
 
 .draggableActivity:hover {
@@ -151,21 +159,7 @@ h1 {
   margin: auto;
 }
 
-/* Footers Css */
-
-.footerFlex {
-  display: flex;
-  justify-content: space-around;
-  font-size: 20px;
-}
-
 /*Screen Responsive Code below*/
-
-@media screen and (max-width: 1500px) {
-  .picFix2 {
-    max-width: 200px;
-  }
-}
 
 @media screen and (max-width: 999px) {
   .picFix2 {

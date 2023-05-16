@@ -8,24 +8,44 @@ export default function ActivityList({ localData }) {
   const [xPos, setXPos] = useState();
   const [yPos, setYPos] = useState();
 
+  // console.log(rePositionAct)
+  // console.log("ActivityList.js", localData)
+  // const localPosition = "";
+  // if (JSON.parse(localStorage.getItem("positions_div")) === "{}") {
+  //   localStorage.setItem("positions_div", {});
+  // }
 
-  const deleteCard = (e) => {
-    //gets the "ID" value form the html element"
+  const [positions, setPositions] = useState({});
+  // const existingDivPositions = JSON.parse(
+  //   localStorage.getItem("positions_div")
+  // );
+
+  // useEffect(() => {
+  //   if (existingDivPositions) {
+  //     localStorage.getItem("positions_div");
+  //   }
+  // }, [existingDivPositions]);
+
+  // console.log("b4", localData);
+
+
+  const detectCard  = (e) => {
     const deleteOne = e.target.getAttribute("id");
+    // console.log(deleteOne);
 
     // find the index number of the arrayed object, stores the number in the variable
     const pos = localData.map((e) => e.key).indexOf(deleteOne);
 
-    //pulls the item from the array
+    //puuls the item from the array
     localData.splice(pos, 1);
 
-    // clears local Storage so new, altered array may be added
     localStorage.clear();
 
     localStorage.setItem("Activity", JSON.stringify(localData));
 
-    useEffect(window.location.reload());
-  };
+    useEffect(window.location.reload())
+  }
+
 
   // quick placeholder for single delete function
   function deleteActivity(e) {
@@ -37,26 +57,41 @@ export default function ActivityList({ localData }) {
   }
 
   const handleStop = (e, data) => {
-
-    let dummyPositionsX = 0;
-    let dummyPositionsY = 0;
+    let dummyPositions = { ...positions };
 
     const card = e.target.getAttribute("id");
-    // returns the key value of the element ( example -- "h5t6")
+    // returns the key value of the element
 
-    const cardIndex = localData.map((e) => e.key).indexOf(card);
-    // returns an index number relating to clicked element (card)
+    const cardPos = localData.map((e) => e.key).indexOf(card);
+    // returns a #
+    
+    console.log(cardPos)
 
-    setXPos((dummyPositionsX = data.x)); //gives us a straight number
-    setYPos((dummyPositionsY = data.y)); //gives us a straight number
+    
 
-    localData[cardIndex].x = data.x
-    console.log(localData[cardIndex].x)
-    localData[cardIndex].y = data.y;
-    console.log(localData[cardIndex].y)
 
-    localStorage.setItem("Activity", JSON.stringify(localData));
+    // const itemId = e.target.id
+    //  let tempId = ("div.draggableActivity.react-draggable-dragged.style")
+    //  console.log(itemId)
+    // dummyPositions[itemId] = {};
+
+    setXPos((dummyPositions["x"] = data.x));
+    setYPos((dummyPositions["y"] = data.y));
+    setPositions(dummyPositions);
+    // console.log("works")
+    console.log(dummyPositions);
+
+    //using these bits below we might be able to get the id key and use it to reference the matching one in local storage?
+    // let deleteOne = e.target.getAttribute('className')
+    // detectCard(e);
+
+    // console.log(deleteOne)
   };
+
+  //putting positions for cards into local storage
+  // useEffect(() => {
+  //   localStorage.setItem("positions_div", JSON.stringify(positions));
+  // }, [positions]);
 
   if (toggleDeleteOne) {
     return (
@@ -80,12 +115,8 @@ export default function ActivityList({ localData }) {
                 <li className="cardText">{singleAct.title}</li>
                 <li className="cardText">{singleAct.time}</li>
                 <img className="picFix" src={singleAct.image} />
-                <li className="cardText">{singleAct.breakTime}</li>
-                <button
-                  className="activityText"
-                  id={singleAct.key}
-                  onClick={deleteCard}
-                >
+                <li>{singleAct.breakTime}</li>
+                <button id={singleAct.key} onClick={detectCard}>
                   DELETE
                 </button>
               </div>
@@ -114,7 +145,7 @@ export default function ActivityList({ localData }) {
                 onDoubleClick={deleteActivity}
               >
                 <li className="cardText">{singleAct.title}</li>
-                <li className="cardText">{singleAct.time}</li>
+                <li className="carFText">{singleAct.time}</li>
 
                 <img className="picFix" src={singleAct.image} />
                 <li>{singleAct.breakTime}</li>

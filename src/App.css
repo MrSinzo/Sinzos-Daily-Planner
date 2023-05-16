@@ -27,7 +27,8 @@ h1 {
   border: var(--main-fc) 5px solid;
   height: 100%;
   min-height: 500px;
-  min-width: 400px;
+  min-width: 350px;
+  flex-grow: 1;
 }
 
 .borderBox {
@@ -67,7 +68,7 @@ h1 {
 .flexThisList {
   display: flex;
   flex-wrap: wrap;
-  flex-basis: 40%;
+  flex-basis: 35%;
   justify-content: center;
 }
 
@@ -115,9 +116,9 @@ h1 {
 .draggableActivity {
   border: 5px outset var(--main-fc);
   border-radius: 10%;
-  min-width: 150px;
+  min-width: 125px;
   min-height: 150px;
-  max-width: 200px;
+  max-width: 155px;
   font-size: 18px;
   cursor: move;
   background-color: var(--main-bg);
@@ -143,9 +144,9 @@ h1 {
 }
 
 .picFix {
-  max-width: 100px;
+  max-width: 80px;
   border-radius: 20px;
-  min-height: 100px;
+  min-height: 80px;
   touch-action: manipulation;
   pointer-events: none;
   margin: auto;

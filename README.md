@@ -58,6 +58,12 @@ Creator- Kyle Feldman - [LinkedIn Profile Link](https://www.linkedin.com/in/kyle
 
 ## Future Developments <a name="develop"></a>
 
-- Add functionallity to write over text in moveable boxes (Done 4/27/2023), functionality to add or remove boxes ( Able to add and remove ALL cards, not individuals yet 4/27/2023), functionality to color code them
+- Functionality to add or remove Acitivity boxes ( both all and individuals )
+- -( added  4/27/2023)
 - Small little animation when button is moved into "All Done" section of the page
-- Want to add hide button for create card component (Done! 5/1/2023)
+- Wanted to add hide button for create card component 
+- -(Done! 5/1/2023)
+- Functionality to color code them?
+- Client requested option for images option in activity card creation 
+- -( added 5/16/2023)
+- 

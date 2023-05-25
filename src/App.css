@@ -1,22 +1,52 @@
+/* BootStrap Augmenting Css  */
+.JustifyContentEvenly {
+  justify-content: space-evenly;
+}
+
+.basis {
+  flex-basis: 20%;
+}
+
+.boxBasis {
+  flex-basis: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* General, Reuseable Css */
 
-* {
+/* * {
   color: var(--main-fc);
   margin: 5px;
-}
+} */
 
-:root {
+/* :root {
   --main-fc: #e1e10d;
   --main-bg: black;
-}
+} */
 
 ul {
   list-style-type: none;
 }
 
-html {
+/* html {
   background-color: black;
-}
+} */
 
 h1 {
   font-size: 50px;
@@ -114,15 +144,14 @@ h1 {
 }
 
 .draggableActivity {
-  border: 5px outset var(--main-fc);
-  border-radius: 10%;
+  /* border: 5px outset var(--main-fc);
+  border-radius: 10%; */
   min-width: 125px;
   min-height: 150px;
   max-width: 155px;
   font-size: 18px;
   cursor: move;
   background-color: var(--main-bg);
-  /* flex-wrap: wrap; */
 }
 
 .activityText {
@@ -137,15 +166,15 @@ h1 {
 }
 
 .draggableActivity:hover {
-  border-color: aliceblue;
-  border: 5px inset var(--main-fc);
+  /* border-color: aliceblue;
+  border: 5px inset var(--main-fc); */
 
   cursor: pointer;
 }
 
 .picFix {
-  max-width: 80px;
-  border-radius: 20px;
+  max-width: 150px;
+  /* border-radius: 20px; */
   min-height: 80px;
   touch-action: manipulation;
   pointer-events: none;
@@ -194,7 +223,7 @@ h1 {
 
   .picFix {
     max-width: 40px;
-    border-radius: 80%;
+    /* border-radius: 80%; */
     min-height: 40px;
   }
 }

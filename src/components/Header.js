@@ -110,8 +110,6 @@ function Header() {
     useEffect(window.location.reload());
   };
 
-
-
   const resetPositions = () => {
     let initialStorageLoad = JSON.parse(localStorage.getItem("Activity"));
 
@@ -128,25 +126,27 @@ function Header() {
 
     localStorage.setItem("Activity", JSON.stringify(initialStorageLoad));
 
-    window.location.reload()
-
+    window.location.reload();
   };
 
-  if (hideForm === true) {
+  if (hideForm) {
     return (
-      <div className="flexThis">
-        <div className="">
+      <div className="d-flex JustifyContentEvenly">
+
+        <div className="text-warning">
           <h1>Hello Class!!!!</h1>
         </div>
-        <div className="">
+
+        <div className="text-warning">
           <h1>Heres our Activities for today!</h1>
         </div>
-        <div className="menu">
-          <button className="buttonColor borderBox" onClick={handleShow}>
+
+        <div className="basis">
+          <button className="" onClick={handleShow}>
             Show Menu
           </button>
           <br></br>
-          <button className="buttonColor borderBox" onClick={resetPositions}>
+          <button className="" onClick={resetPositions}>
             Reset Positions
           </button>
         </div>
@@ -155,51 +155,51 @@ function Header() {
   }
   if (!hideForm) {
     return (
-      <div className="flexThis">
-        <div className="spacer">
-          <h1>Hello Class!!!!</h1>
+      <div className="d-flex JustifyContentEvenly">
+        <div className="text-warning">
+          <h1> Hello Class!!!!</h1>
         </div>
-        <div className="">
+        <div className="text-warning">
           <h1>Heres our Activities for today!</h1>
         </div>
 
-        <div className="menu">
-          <button className=" buttonColor borderBox" onClick={handleHide}>
+        <div className="basis">
+          <button className="" onClick={handleHide}>
             Hide Menu
           </button>
           <br></br>
-          <button className=" buttonColor borderBox" onClick={resetPositions}>
+          <button className="" onClick={resetPositions}>
             Reset Positions
           </button>
-          <div className="borderBox">
-            <li>
+          <div className="">
+            <p>
               <input
-                className="activityText"
+                className="form-control"
                 name="title"
                 value={title}
                 onChange={handleInputChange}
                 placeholder="Activity?"
               />
-            </li>
-            <li>
+            </p>
+            <p>
               <input
-                className="activityText"
+                className=""
                 name="time"
                 value={time}
                 onChange={handleInputChange}
                 placeholder="Time?"
               />
-            </li>
-            <li>
+            </p>
+            <p>
               <input
-                className="activityText"
+                className=""
                 name="breakTime"
                 value={breakTime}
                 onChange={handleInputChange}
                 placeholder="Someone on Break?"
               />
-            </li>
-            <div className="buttonColor">
+            </p>
+            <div className="">
               <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <div
                   title="Edit picture"
@@ -213,7 +213,7 @@ function Header() {
                   onClick={() => document.getElementById("fileInput").click()}
                 />
                 <input
-                  className="buttonColor"
+                  className=""
                   // title="Click to edit!"
                   type="file"
                   accept=".png, .jpg, .jpeg"
@@ -224,15 +224,11 @@ function Header() {
               </form>
             </div>
 
-            <div className="flexThis2">
-              <button
-                className="buttonColor"
-                id="deleteAllBtn"
-                onClick={handleDelete}
-              >
+            <div className="">
+              <button className="" id="deleteAllBtn" onClick={handleDelete}>
                 Delete All Activites
               </button>
-              <button className="buttonColor row" onClick={handleClick}>
+              <button className="" onClick={handleClick}>
                 Add Activity
               </button>
             </div>

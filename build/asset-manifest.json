@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Sinzos-Daily-Planner/static/css/main.eb2e1546.css",
+    "main.js": "/Sinzos-Daily-Planner/static/js/main.66b906b0.js",
+    "index.html": "/Sinzos-Daily-Planner/index.html",
+    "main.eb2e1546.css.map": "/Sinzos-Daily-Planner/static/css/main.eb2e1546.css.map",
+    "main.66b906b0.js.map": "/Sinzos-Daily-Planner/static/js/main.66b906b0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eb2e1546.css",
+    "static/js/main.66b906b0.js"
+  ]
+}

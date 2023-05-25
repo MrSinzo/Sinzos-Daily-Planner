@@ -6,7 +6,7 @@ import Container from "./pages/Container";
 
 function App() {
   return (
-    <div className="mainContainer">
+    <div className="bg-dark">
       <Container />
     </div>
   );

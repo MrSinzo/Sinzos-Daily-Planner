@@ -8,7 +8,6 @@ export default function ActivityList({ localData }) {
   const [xPos, setXPos] = useState();
   const [yPos, setYPos] = useState();
 
-
   const deleteCard = (e) => {
     //gets the "ID" value form the html element"
     const deleteOne = e.target.getAttribute("id");
@@ -38,33 +37,39 @@ export default function ActivityList({ localData }) {
 
   const handleStop = (e, data) => {
 
-    let dummyPositionsX = 0;
-    let dummyPositionsY = 0;
 
-    const card = e.target.getAttribute("id");
+    const myCard = e.target.getAttribute("id");
     // returns the key value of the element ( example -- "h5t6")
+    console.log(myCard)
 
-    const cardIndex = localData.map((e) => e.key).indexOf(card);
+    const cardIndexNum = localData.map((e) => e.key).indexOf(myCard);
     // returns an index number relating to clicked element (card)
-
+    let dummyPositionsX = 0
+    let dummyPositionsY = 0
+    // let dummyPositionsX = Number(localData[cardIndexNum].x);
+    // console.log(dummyPositionsX)
+    // let dummyPositionsY = Number(localData[cardIndexNum].y);
+    console.log(data.x)
     setXPos((dummyPositionsX = data.x)); //gives us a straight number
+    console.log(localData[cardIndexNum]);
     setYPos((dummyPositionsY = data.y)); //gives us a straight number
 
-    localData[cardIndex].x = data.x
-    console.log(localData[cardIndex].x)
-    localData[cardIndex].y = data.y;
-    console.log(localData[cardIndex].y)
+    localData[cardIndexNum].x = data.x;
+    console.log(localData[cardIndexNum]);
+    localData[cardIndexNum].y = data.y;
+    console.log(localData[cardIndexNum].y);
 
     localStorage.setItem("Activity", JSON.stringify(localData));
   };
 
   if (toggleDeleteOne) {
     return (
-      <div className="flexThisList">
+      <div className="flex-wrap row ml-2">
         {localData.map((singleAct) => (
-          <div key={singleAct.key} className="flexThis">
+          <div key={singleAct.key} className="" id={singleAct.key}>
             <Draggable
               axis="both"
+              id={singleAct.key}
               defaultPosition={{
                 x: Number(singleAct.x),
                 y: Number(singleAct.y),
@@ -72,15 +77,17 @@ export default function ActivityList({ localData }) {
               onStop={handleStop}
             >
               <div
+                className="card"
                 id={singleAct.key}
                 key={singleAct.key}
-                className="draggableActivity cardHeaderFlex"
                 onDoubleClick={hideDelete}
               >
-                <li className="cardText">{singleAct.title}</li>
-                <li className="cardText">{singleAct.time}</li>
-                <img className="picFix" src={singleAct.image} />
-                <li className="cardText">{singleAct.breakTime}</li>
+                <img src={singleAct.image} className="card-img-top picFix"/>
+                <div id={singleAct.key} className="card-body">
+                  <h5 id={singleAct.key} className="card-text">{singleAct.title}</h5>
+                  <p id={singleAct.key} className="card-text">{singleAct.time}</p>
+                  <p id={singleAct.key} className="card-text">{singleAct.breakTime}</p>
+                </div>
                 <button
                   className="activityText"
                   id={singleAct.key}
@@ -96,9 +103,9 @@ export default function ActivityList({ localData }) {
     );
   } else {
     return (
-      <div className="flexThisList">
+      <div className="flex-wrap row ml-2">
         {localData.map((singleAct) => (
-          <div key={singleAct.key} className="flexThis">
+          <div key={singleAct.key} className="" id={singleAct.key}>
             <Draggable
               axis="both"
               defaultPosition={{
@@ -108,16 +115,17 @@ export default function ActivityList({ localData }) {
               onStop={handleStop}
             >
               <div
+                className="card border border-5 border-warning"
                 id={singleAct.key}
                 key={singleAct.key}
-                className="draggableActivity cardHeaderFlex"
                 onDoubleClick={deleteActivity}
               >
-                <li className="cardText">{singleAct.title}</li>
-                <li className="cardText">{singleAct.time}</li>
-
-                <img className="picFix" src={singleAct.image} />
-                <li>{singleAct.breakTime}</li>
+                <img src={singleAct.image} className="card-img-top picFix"/>
+                <div id={singleAct.key} className="pl-2">
+                  <h5 id={singleAct.key} className="card-text">{singleAct.title}</h5>
+                  <p id={singleAct.key} className="card-text">{singleAct.time}</p>
+                  <p id={singleAct.key} className="card-text">{singleAct.breakTime}</p>
+                </div>
               </div>
             </Draggable>
           </div>

@@ -6,18 +6,18 @@ import ActivityList from "../components/ActivityList";
 
 function Container() {
   return (
-    <div>
+    <div className="">
       <Header />
 
       
-      <div className="flexThis2">
-      <ActivityList />
-        <div>
-          <h2 className="activityBoxes">↓ Current Activity ↓</h2>{" "}
+      <div className="d-flex p-2">
+      <ActivityList className="flex-fill"/>
+        <div className="boxBasis">
+          <h2 className="bg-dark border">↓ Current Activity ↓</h2>{" "}
         </div>
-        <div>
+        <div className="boxBasis">
           {" "}
-          <h2 className="activityBoxes">All Done! </h2>
+          <h2 className="bg-dark border">All Done! </h2>
         </div>
       </div>
       <Footer />

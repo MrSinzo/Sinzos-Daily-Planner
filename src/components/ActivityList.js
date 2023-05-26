@@ -36,20 +36,18 @@ export default function ActivityList({ localData }) {
   }
 
   const handleStop = (e, data) => {
-
-
     const myCard = e.target.getAttribute("id");
     // returns the key value of the element ( example -- "h5t6")
-    console.log(myCard)
+    console.log(myCard);
 
     const cardIndexNum = localData.map((e) => e.key).indexOf(myCard);
     // returns an index number relating to clicked element (card)
-    let dummyPositionsX = 0
-    let dummyPositionsY = 0
+    let dummyPositionsX = 0;
+    let dummyPositionsY = 0;
     // let dummyPositionsX = Number(localData[cardIndexNum].x);
     // console.log(dummyPositionsX)
     // let dummyPositionsY = Number(localData[cardIndexNum].y);
-    console.log(data.x)
+    console.log(data.x);
     setXPos((dummyPositionsX = data.x)); //gives us a straight number
     console.log(localData[cardIndexNum]);
     setYPos((dummyPositionsY = data.y)); //gives us a straight number
@@ -66,7 +64,7 @@ export default function ActivityList({ localData }) {
     return (
       <div className="d-flex flex-wrap">
         {localData.map((singleAct) => (
-          <div key={singleAct.key} className="" id={singleAct.key}>
+          <div key={singleAct.key} id={singleAct.key}>
             <Draggable
               axis="both"
               id={singleAct.key}
@@ -82,11 +80,20 @@ export default function ActivityList({ localData }) {
                 key={singleAct.key}
                 onDoubleClick={hideDelete}
               >
-                <img src={singleAct.image} className="card-img-top picFix"/>
+                <img src={singleAct.image} className="card-img-top picFix" />
                 <div id={singleAct.key} className="card-body">
-                  <h5 id={singleAct.key} className="card-text text-warning ctxt">{singleAct.title}</h5>
-                  <p id={singleAct.key} className="card-text text-warning ctxt">{singleAct.time}</p>
-                  <p id={singleAct.key} className="card-text text-warning ctxt">{singleAct.breakTime}</p>
+                  <h5
+                    id={singleAct.key}
+                    className="card-text text-warning ctxt"
+                  >
+                    {singleAct.title}
+                  </h5>
+                  <p id={singleAct.key} className="card-text text-warning ctxt">
+                    {singleAct.time}
+                  </p>
+                  <p id={singleAct.key} className="card-text text-warning ctxt">
+                    {singleAct.breakTime}
+                  </p>
                 </div>
                 <button
                   className="card-text bg-danger text-warning"
@@ -105,7 +112,7 @@ export default function ActivityList({ localData }) {
     return (
       <div className="d-flex flex-wrap">
         {localData.map((singleAct) => (
-          <div key={singleAct.key} className="" id={singleAct.key}>
+          <div key={singleAct.key} id={singleAct.key}>
             <Draggable
               axis="both"
               defaultPosition={{
@@ -120,11 +127,20 @@ export default function ActivityList({ localData }) {
                 key={singleAct.key}
                 onDoubleClick={deleteActivity}
               >
-                <img src={singleAct.image} className="card-img-top picFix"/>
-                <div id={singleAct.key} className="">
-                  <h5 id={singleAct.key} className="card-text text-warning ctxt">{singleAct.title}</h5>
-                  <p id={singleAct.key} className="card-text text-warning ctxt">{singleAct.time}</p>
-                  <p id={singleAct.key} className="card-text text-warning ctxt">{singleAct.breakTime}</p>
+                <img src={singleAct.image} className="card-img-top picFix" />
+                <div id={singleAct.key}>
+                  <h5
+                    id={singleAct.key}
+                    className="card-text text-warning ctxt"
+                  >
+                    {singleAct.title}
+                  </h5>
+                  <p id={singleAct.key} className="card-text text-warning ctxt">
+                    {singleAct.time}
+                  </p>
+                  <p id={singleAct.key} className="card-text text-warning ctxt">
+                    {singleAct.breakTime}
+                  </p>
                 </div>
               </div>
             </Draggable>

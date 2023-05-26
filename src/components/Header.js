@@ -3,6 +3,7 @@ import uuid from "../utils/helpers";
 import backUp from "../images/LARCHMONT-LION.png";
 
 function Header() {
+  // This if statement will run as soon as the page loads, if localStorage doesnt not have the "Activity" key it will create on with an empty array.
   if (localStorage.getItem("Activity") == null) {
     localStorage.setItem("Activity", "[]");
   }
@@ -110,7 +111,6 @@ function Header() {
     let initialStorageLoad = JSON.parse(localStorage.getItem("Activity"));
 
     const keys = Object.keys(initialStorageLoad);
-    // console.log(initialStorageLoad.x)
     keys.forEach((key) => {
       setXPos((initialStorageLoad[key].x = 0));
       setYPos((initialStorageLoad[key].y = 0));
@@ -128,7 +128,6 @@ function Header() {
   if (hideForm) {
     return (
       <div className="d-flex justify-content-evenly">
-
         <div className="text-warning basis">
           <h1 className="ctxt">Hello Class!!!!</h1>
         </div>
@@ -141,38 +140,38 @@ function Header() {
           {" "}
           <div className="d-flex justify-content-evenly m-2">
             <div>
-            <button
-              className="btn btn-warning btn-sm m-1"
-              type="button"
-              onClick={handleShow}
-            >
-              Show Menu
-            </button>
+              <button
+                className="btn btn-warning btn-sm m-1"
+                type="button"
+                onClick={handleShow}
+              >
+                Show Menu
+              </button>
             </div>
             <div>
-            <button
-              className="btn btn-warning btn-sm m-1"
-              type="button"
-              onClick={resetPositions}
-            >
-              Reset Positions
-            </button>
+              <button
+                className="btn btn-warning btn-sm m-1"
+                type="button"
+                onClick={resetPositions}
+              >
+                Reset Positions
+              </button>
             </div>
             <div>
-            <button
-              className="invisible btn btn-danger btn-sm m-1"
-              type="button"
-              id="deleteAllBtn"
-              onClick={handleDelete}
-            >
-              Delete All Activites
-            </button>
-          </div>
+              <button
+                className="invisible btn btn-danger btn-sm m-1"
+                type="button"
+                id="deleteAllBtn"
+                onClick={handleDelete}
+              >
+                Delete All Activites
+              </button>
+            </div>
           </div>
         </div>
 
         {""}
-        <div className="">
+        <div>
           <div className="invisible d-flex flex-wrap justify-content-evenly basis">
             <p>
               <input
@@ -201,10 +200,9 @@ function Header() {
                 placeholder="Someone on Break?"
               />
             </p>
-            <div className="">
+            <div>
               <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <div
-                  title=""
                   className="bg-warning"
                   alt="Activity image"
                   src={selectedImage}
@@ -240,7 +238,6 @@ function Header() {
   if (!hideForm) {
     return (
       <div className="d-flex justify-content-evenly">
-
         <div className="text-warning basis">
           <h1 className="ctxt">Hello Class!!!!</h1>
         </div>
@@ -281,7 +278,7 @@ function Header() {
         </div>
         <div>
           <div className="d-flex flex-wrap justify-content-evenly">
-            <p className="">
+            <p>
               <input
                 className="bg-dark border border-warning text-warning"
                 name="title"
@@ -308,10 +305,9 @@ function Header() {
                 placeholder="Someone on Break?"
               />
             </p>
-            <div className="">
+            <div>
               <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <div
-                  title=""
                   className="bg-warning"
                   alt="Activity image"
                   src={selectedImage}

@@ -64,7 +64,7 @@ export default function ActivityList({ localData }) {
 
   if (toggleDeleteOne) {
     return (
-      <div className="flex-wrap row ml-2">
+      <div className="d-flex flex-wrap">
         {localData.map((singleAct) => (
           <div key={singleAct.key} className="" id={singleAct.key}>
             <Draggable
@@ -77,19 +77,19 @@ export default function ActivityList({ localData }) {
               onStop={handleStop}
             >
               <div
-                className="card"
+                className="card border border-5 border-warning bg-dark"
                 id={singleAct.key}
                 key={singleAct.key}
                 onDoubleClick={hideDelete}
               >
                 <img src={singleAct.image} className="card-img-top picFix"/>
                 <div id={singleAct.key} className="card-body">
-                  <h5 id={singleAct.key} className="card-text">{singleAct.title}</h5>
-                  <p id={singleAct.key} className="card-text">{singleAct.time}</p>
-                  <p id={singleAct.key} className="card-text">{singleAct.breakTime}</p>
+                  <h5 id={singleAct.key} className="card-text text-warning ctxt">{singleAct.title}</h5>
+                  <p id={singleAct.key} className="card-text text-warning ctxt">{singleAct.time}</p>
+                  <p id={singleAct.key} className="card-text text-warning ctxt">{singleAct.breakTime}</p>
                 </div>
                 <button
-                  className="activityText"
+                  className="card-text bg-danger text-warning"
                   id={singleAct.key}
                   onClick={deleteCard}
                 >
@@ -103,7 +103,7 @@ export default function ActivityList({ localData }) {
     );
   } else {
     return (
-      <div className="flex-wrap row ml-2">
+      <div className="d-flex flex-wrap">
         {localData.map((singleAct) => (
           <div key={singleAct.key} className="" id={singleAct.key}>
             <Draggable
@@ -115,16 +115,16 @@ export default function ActivityList({ localData }) {
               onStop={handleStop}
             >
               <div
-                className="card border border-5 border-warning"
+                className="card border border-5 border-warning bg-dark"
                 id={singleAct.key}
                 key={singleAct.key}
                 onDoubleClick={deleteActivity}
               >
                 <img src={singleAct.image} className="card-img-top picFix"/>
-                <div id={singleAct.key} className="pl-2">
-                  <h5 id={singleAct.key} className="card-text">{singleAct.title}</h5>
-                  <p id={singleAct.key} className="card-text">{singleAct.time}</p>
-                  <p id={singleAct.key} className="card-text">{singleAct.breakTime}</p>
+                <div id={singleAct.key} className="">
+                  <h5 id={singleAct.key} className="card-text text-warning ctxt">{singleAct.title}</h5>
+                  <p id={singleAct.key} className="card-text text-warning ctxt">{singleAct.time}</p>
+                  <p id={singleAct.key} className="card-text text-warning ctxt">{singleAct.breakTime}</p>
                 </div>
               </div>
             </Draggable>

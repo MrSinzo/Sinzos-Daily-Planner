@@ -81,12 +81,8 @@ function Header() {
 
   //when "Add Activity" button is clicked, it will grab the old array of data,
   //push the new object into the array and then save it to local storage
+
   const handleClick = (e) => {
-    // let newName = uuid();
-    // // console.log(newName)
-
-    // localStorage.setItem(newName, JSON.stringify(newActivity));
-
     let oldData = JSON.parse(localStorage.getItem("Activity"));
     console.log(newActivity.image);
     if (newActivity.image === "/static/images/avatar/1.jpg") {
@@ -131,50 +127,56 @@ function Header() {
 
   if (hideForm) {
     return (
-      <div className="d-flex JustifyContentEvenly">
+      <div className="d-flex justify-content-evenly">
 
-        <div className="text-warning">
-          <h1>Hello Class!!!!</h1>
-        </div>
-
-        <div className="text-warning">
-          <h1>Heres our Activities for today!</h1>
+        <div className="text-warning basis">
+          <h1 className="ctxt">Hello Class!!!!</h1>
         </div>
 
-        <div className="basis">
-          <button className="" onClick={handleShow}>
-            Show Menu
-          </button>
-          <br></br>
-          <button className="" onClick={resetPositions}>
-            Reset Positions
-          </button>
-        </div>
-      </div>
-    );
-  }
-  if (!hideForm) {
-    return (
-      <div className="d-flex JustifyContentEvenly">
-        <div className="text-warning">
-          <h1> Hello Class!!!!</h1>
-        </div>
-        <div className="text-warning">
-          <h1>Heres our Activities for today!</h1>
+        <div className="text-warning basis">
+          <h1 className="ctxt">Heres our Activities for today!</h1>
         </div>
 
-        <div className="basis">
-          <button className="" onClick={handleHide}>
-            Hide Menu
-          </button>
-          <br></br>
-          <button className="" onClick={resetPositions}>
-            Reset Positions
-          </button>
-          <div className="">
+        <div name="?">
+          {" "}
+          <div className="d-flex justify-content-evenly m-2">
+            <div>
+            <button
+              className="btn btn-warning btn-sm m-1"
+              type="button"
+              onClick={handleShow}
+            >
+              Show Menu
+            </button>
+            </div>
+            <div>
+            <button
+              className="btn btn-warning btn-sm m-1"
+              type="button"
+              onClick={resetPositions}
+            >
+              Reset Positions
+            </button>
+            </div>
+            <div>
+            <button
+              className="invisible btn btn-danger btn-sm m-1"
+              type="button"
+              id="deleteAllBtn"
+              onClick={handleDelete}
+            >
+              Delete All Activites
+            </button>
+          </div>
+          </div>
+        </div>
+
+        {""}
+        <div className="">
+          <div className="invisible d-flex flex-wrap justify-content-evenly basis">
             <p>
               <input
-                className="form-control"
+                className="bg-dark border border-warning text-warning"
                 name="title"
                 value={title}
                 onChange={handleInputChange}
@@ -183,7 +185,7 @@ function Header() {
             </p>
             <p>
               <input
-                className=""
+                className="bg-dark border border-warning text-warning"
                 name="time"
                 value={time}
                 onChange={handleInputChange}
@@ -192,7 +194,7 @@ function Header() {
             </p>
             <p>
               <input
-                className=""
+                className="bg-dark border border-warning text-warning "
                 name="breakTime"
                 value={breakTime}
                 onChange={handleInputChange}
@@ -202,9 +204,9 @@ function Header() {
             <div className="">
               <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <div
-                  title="Edit picture"
-                  className=""
-                  alt="Profile Picture"
+                  title=""
+                  className="bg-warning"
+                  alt="Activity image"
                   src={selectedImage}
                   sx={{
                     width: 250,
@@ -213,7 +215,7 @@ function Header() {
                   onClick={() => document.getElementById("fileInput").click()}
                 />
                 <input
-                  className=""
+                  className="bg-dark border border-warning text-warning"
                   // title="Click to edit!"
                   type="file"
                   accept=".png, .jpg, .jpeg"
@@ -223,15 +225,120 @@ function Header() {
                 />
               </form>
             </div>
+            <button
+              className="btn btn-warning btn-sm"
+              type="button"
+              onClick={handleClick}
+            >
+              Add Activity
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  if (!hideForm) {
+    return (
+      <div className="d-flex justify-content-evenly">
 
+        <div className="text-warning basis">
+          <h1 className="ctxt">Hello Class!!!!</h1>
+        </div>
+
+        <div className="text-warning basis">
+          <h1 className="ctxt">Heres our Activities for today!</h1>
+        </div>
+
+        <div className="d-flex justify-content-evenly m-2">
+          <div>
+            <button
+              className="btn btn-warning btn-sm m-1"
+              type="button"
+              onClick={handleHide}
+            >
+              Hide Menu
+            </button>
+          </div>
+          <div>
+            <button
+              className="btn btn-warning btn-sm m-1"
+              type="button"
+              onClick={resetPositions}
+            >
+              Reset Positions
+            </button>
+          </div>
+          <div>
+            <button
+              className="btn btn-danger btn-sm m-1"
+              type="button"
+              id="deleteAllBtn"
+              onClick={handleDelete}
+            >
+              Delete All Activites
+            </button>
+          </div>
+        </div>
+        <div>
+          <div className="d-flex flex-wrap justify-content-evenly">
+            <p className="">
+              <input
+                className="bg-dark border border-warning text-warning"
+                name="title"
+                value={title}
+                onChange={handleInputChange}
+                placeholder="Activity?"
+              />
+            </p>
+            <p>
+              <input
+                className="bg-dark border border-warning text-warning"
+                name="time"
+                value={time}
+                onChange={handleInputChange}
+                placeholder="Time?"
+              />
+            </p>
+            <p>
+              <input
+                className="bg-dark border border-warning text-warning "
+                name="breakTime"
+                value={breakTime}
+                onChange={handleInputChange}
+                placeholder="Someone on Break?"
+              />
+            </p>
             <div className="">
-              <button className="" id="deleteAllBtn" onClick={handleDelete}>
-                Delete All Activites
-              </button>
-              <button className="" onClick={handleClick}>
-                Add Activity
-              </button>
+              <form onSubmit={handleSubmit} encType="multipart/form-data">
+                <div
+                  title=""
+                  className="bg-warning"
+                  alt="Activity image"
+                  src={selectedImage}
+                  sx={{
+                    width: 250,
+                    height: 250,
+                  }}
+                  onClick={() => document.getElementById("fileInput").click()}
+                />
+                <input
+                  className="bg-dark border border-warning text-warning"
+                  // title="Click to edit!"
+                  type="file"
+                  accept=".png, .jpg, .jpeg"
+                  name="photo"
+                  onChange={handlePhoto}
+                  id="fileInput"
+                />
+              </form>
             </div>
+            <button
+              className="btn btn-warning btn-sm"
+              type="button"
+              onClick={handleClick}
+            >
+              Add Activity
+            </button>
           </div>
         </div>
       </div>
@@ -240,39 +347,3 @@ function Header() {
 }
 
 export default Header; // our connection to the rest of the application
-
-// const handleClick = (e) => {
-//   const reader = new FileReader();
-
-//   reader.onload = (event) => {
-//     let oldData = JSON.parse(localStorage.getItem("Activity"));
-//     localStorage.setItem("profilePicture", event.target.result);
-//     setSelectedImage(event.target.result);
-//     oldData.push(newActivity);
-//     localStorage.setItem("Activity", JSON.stringify(oldData));
-//   };
-//   console.log(reader);
-//   reader.readAsDataURL(e.target.files[0]);
-// };
-
-// const handlePhoto = (e) => {
-//   // setNewAuthor({ ...newUser, photo: e.target.files[0] });
-//   // console.log(newUser.photo);
-
-//   const reader = new FileReader();
-
-//   const { name, value } = e.target;
-//   if (name === "image") {
-//     reader.onload = (event) => {
-//       // localStorage.setItem('profilePicture', event.target.result);
-//       // setSelectedImage(event.target.result);
-//       event.target.result;
-//       console.log(event.target.result);
-//       console.log(value)
-//       setImage(event.target.result)
-//     };
-//   }
-
-//   console.log(reader);
-//   reader.readAsDataURL(e.target.files[0]);
-// };

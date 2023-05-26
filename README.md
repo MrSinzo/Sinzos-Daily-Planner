@@ -66,4 +66,5 @@ Creator- Kyle Feldman - [LinkedIn Profile Link](https://www.linkedin.com/in/kyle
 - Functionality to color code them?
 - Client requested option for images option in activity card creation 
 - -( added 5/16/2023)
-- 
+- Add state function to keep menu hidden on reload if it was hidden before the reload
+- Create a component that allows the activity cards to be scrolled through vertically, rather than filling up the page
